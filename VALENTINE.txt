@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+            transition: background 1s ease-in-out;
+        }
+        .card {
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .tulips {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d63384;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+        }
+        .btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        .yes {
+            background: #ff4d6d;
+            color: white;
+        }
+        .no {
+            background: #999;
+            color: white;
+            position: relative;
+        }
+        .message {
+            display: none;
+            font-size: 24px;
+            color: white;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="card">
+        <img class="tulips" src="https://upload.wikimedia.org/wikipedia/commons/4/47/Tulip_Flower.jpg" alt="Tulips">
+        <div class="question">Will you be my Valentine?</div>
+        <div class="buttons">
+            <button class="btn yes" onclick="showMessage()">Yes</button>
+            <button class="btn no" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+    <div class="message" id="message" style="display: none;">I LOVE YOU BABY JAAAN ❤️</div>
+    
+    <script>
+        function moveButton() {
+            let x = Math.random() * 200 - 100;
+            let y = Math.random() * 50 - 25;
+            document.querySelector('.no').style.transform = `translate(${x}px, ${y}px)`;
+        }
+        function showMessage() {
+            document.body.style.background = '#ff4d6d';
+            document.getElementById('card').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('message').style.fontSize = '30px';
+        }
+        document.querySelector('.yes').addEventListener('mouseover', function() {
+            this.style.fontSize = '24px';
+            this.style.padding = '15px 25px';
+        });
+    </script>
+</body>
+</html>
